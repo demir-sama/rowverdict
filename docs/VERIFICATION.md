@@ -1,70 +1,57 @@
-# Verification record
+# RowVerdict 0.2.0 verification
 
-Executed on the shared Linux box on **11 November 2026, Africa/Lagos (WAT)**.
-This record describes actual tests, not public CI or a certification.
+Verification date: **2026-11-11 (Africa/Lagos / WAT, UTC+1)**. Local changes only; no new commit or catalog update has been published by this upgrade.
 
-## Verified
+## Automated results
 
-| Layer | Result | Evidence |
+| Check | Result | Evidence |
 |---|---|---|
-| Deterministic unit/regression suite | **61 passed**, Python 3.13.5 | `evidence/core-tests.txt` |
-| Same suite under Hermes-managed Python 3.14.9 | **61 passed** | `evidence/core-tests-python314.txt` |
-| Stable Hermes catalog admission with `--install-deps` | **PASS**, security scan **safe**, no core overrides/collisions, declarations match | `evidence/validate-stable.txt` |
-| Stable Hermes Doctor `--ci` | **PASS**, real runtime discovery/import/registration; four tools, one hook | `evidence/doctor-stable.txt` |
-| Researched current-main snapshot admission + Doctor | **PASS** | `evidence/validate-main.txt`, `evidence/doctor-main.txt` |
-| Actual installed native tools | Four discovered; inspect and plan process 10,000 records; history reads durable plan | `evidence/hermes-runtime-smoke.txt` |
-| Actual host unattended approval | Export directive is `approve`; real stable host refuses without a human/bridge; **no artifacts** for denied plan | same |
-| Actual stable dashboard host | Unauthenticated API 401; fresh QA-token authenticated scoped plugin API 200; detail/404 and no export route; manifest/JS/CSS served 200 | `evidence/dashboard-host-tests.txt` |
-| Dashboard structure | Real host React renders evidence/contract/drift/receipt views, filter/sort and refresh path; no browser claimed | `evidence/dashboard-render-tests.txt` |
-| Offline end-to-end core demonstration | 9,977 + 23 = 10,000; real artifacts, unchanged source, retained ID zeros, column drift, stale refusal and reload | `evidence/demo-core.txt` |
+| Full Python suite, Hermes-managed Python 3.14.9 | **122 passed, no skips**, including 13 FastAPI route tests | `evidence/tests-v020-python314.txt` |
+| System Python 3.13.5 | **109 passed, 13 explicitly skipped** (host FastAPI/httpx absent) | `evidence/tests-v020-python313.txt` |
+| JavaScript syntax | `node --check dashboard/dist/index.js` passes | repeatable command |
+| Stable Hermes v0.23.1 Doctor `--ci` | PASS: 7 tools, 1 hook, slash registration | `evidence/doctor-v020-stable.txt` |
+| Stable local admission with `--install-deps` | PASS, safe security scan, no core override, host-ready isolation | `evidence/validate-v020-stable.json` |
+| Real stable-host API/auth/native integration | PASS: real mounts/assets, unauthenticated GET/POST 401, no export endpoint, native formats and fail-closed approval | `evidence/host-v020-tests.txt` |
+| Real React 19.3.0 component against actual host API | **24 assertions passed** through source → draft → explicit review → plan → filter/search → correction → replay preview → child → safe handoff → STALE | same host log; `evidence/v020-ui/ui-result.json` |
+| Contrast arithmetic | 11 foreground/control/focus pairs meet sampled WCAG AA thresholds | `evidence/v020-ui/contrast-checks.json` |
+| Original worldwide baseline | 9,977 clean + 23 quarantined = 10,000 | `evidence/demo-v020.txt` |
+| Actual UI correction/replay fixture | 9,978 clean + 22 quarantined = 10,000; parent unchanged | host/UI test log |
 
-Stable target is **v0.23.1**, upstream commit
-`3b421578588243f920886e6fe79a6faa87ea026e`. This is a separate local worktree of the
-release tag, not an assertion that an arbitrary main checkout is stable.
+The suite retains the previous 61-test safety coverage; its former non-CSV-refusal case now refuses an unsupported PDF, because JSON is intentionally supported. Added tests cover draft extraction/review/immutability/staleness, conservative date/identifier/category inference, JSON precision/grammar/bounds, XML/ZIP attacks, Excel formulas/errors/dates/sheets, patch restrictions/duplicate rechecks/lineage/source+file staleness, HTML escaping/receipt integrity, approval hooks/slash handoffs, version consistency, independent profile/source module caches and real API operations.
 
-The tests cover UTF-8/BOM, quoted commas/newlines, malformed rows, empty input,
-header/schema mismatches, full-row/byte/column/field/total-cell/contract-size bounds, exact Decimal arithmetic
-beyond default precision, explicit dates/separators, enum/ranges, optional/required
-cells, all-conflict duplicate quarantine, no raw row data in tool plans/SQLite,
-conservation, source and engine-source drift, private POSIX permissions,
-traversal/symlink/FIFO refusal, concurrent/idempotent exports, atomic staging cleanup,
-publish-before-commit recovery, artifact/receipt tampering, and persisted restart state.
+Hermes stable source: `v0.23.1`, commit `3b421578588243f920886e6fe79a6faa87ea026e`. Runtime dependency: `defusedxml==0.7.1` declared in pyproject and prepared by Hermes PM. API tests used FastAPI 0.133.1 and httpx 0.28.1 from the host runtime. The test renderer and host TestClient emit their upstream deprecation notices; these are not failing assertions.
 
-## Not verified / not completed
+## Approval: what was actually verified
 
-- **Affirmative human host approval round-trip.** The actual fail-closed path is
-  verified; deterministic export is verified separately. No approval was forged,
-  auto-answered or retried through another route for the denied native plan.
-- **Live model-generated tool call.** Official free-endpoint attempts reached Nous
-  (HTTP 402) and OpenRouter (HTTP 401) without a credential available through the
-  supported accessor. Neither succeeded. See `evidence/free-inference-smoke.json`.
-- **Interactive browser visual/keyboard QA or a real dashboard screenshot.** The
-  executor has no browser/screenshot tool. The CLI illustration is explicitly a
-  rendered transcript. Parent can capture the actual live dashboard next.
-- **Public GitHub publication / public commit reachability / fresh remote install
-  at the pin / GitHub Actions / catalog CI or maintainer admission.** The inline
-  connector cannot create/push repository contents; `gh` needs normal restored
-  sign-in. A local pass is not a maintainer approval.
-- **Video recording, X post, catalog PR or hackathon form submission.** None sent.
-- Windows/macOS, network filesystems, hostile same-user processes, older Hermes,
-  financial/business correctness and universal spreadsheet formula prevention.
+The real host returns `approve` directives for native draft acceptance/export, then **blocks unattended execution** when no person/gateway approval bridge exists. Stale source plans return `block`. Denied actions are never retried through a library/CLI. Positive EXPORTED history/report fixtures come from separately labeled explicit offline library QA, not a simulated affirmative human native approval.
 
-## Reproduction notes
+The stable public dispatcher reaches `registry.dispatch` without pre_tool_call hooks. Therefore slash review/export deliberately return a native-tool handoff instead of calling that ungated dispatcher. Other slash commands invoke only inspect/draft/history/review-plan handlers. The dashboard has **no export route**. Its replay operation creates a new review plan only; native host export of that child still needs separate approval.
 
-`python3 -m unittest discover -s tests -v` needs no external package. The optional
-render test uses an already-installed Hermes web workspace:
+Not verified: a new live-model conversation, an actual affirmative human-host approval round-trip, or public catalog CI against the unpublished SHA. No claim of those is made. Exact-SHA public fetch/CI can only run after Lee approves publication.
 
-```bash
-HERMES_CHECKOUT=/path/to/hermes-agent node scripts/test_dashboard.cjs
-```
+## Visual evidence: honest document renders, not browser screenshots
 
-It uses `evidence/dashboard-api.json`, a captured plan for the synthetic fixture,
-not real customer data. It is a structural render test, not browser automation.
-The GitHub workflow is prepared but has not run remotely.
+The actual production IIFE was loaded with host-version React and exercised using a **non-DOM React test renderer**. Its fetches called the real authenticated Hermes host API through an own-app loopback TestClient bridge, not mock production responses. Resolved React trees with real persisted synthetic-fixture state were server-rendered as HTML. WeasyPrint 70.0 and pdftoppm produced PNGs without running a browser, browser JavaScript, CDP, Playwright or Puppeteer.
 
-The first isolated `--install-deps` attempt used a fresh HERMES_HOME with no managed
-Python and hit a download TLS error. Re-running the same sanctioned validator
-with the already-provisioned isolated runtime home completed cleanly. The real
-stable dashboard build initially found system Node/pnpm too old; the official
-Hermes toolchain helper installed its exact Node 26.12.1 / pnpm 12.15.0 pins,
-after which the stable web build passed. No platform guards were disabled.
+- `docs/dashboard-dark-source-render.png`
+- `docs/dashboard-dark-contract-render.png`
+- `docs/dashboard-dark-review-render.png`
+- `docs/dashboard-dark-replay-render.png`
+- `docs/dashboard-dark-export-render.png`
+- `docs/dashboard-dark-stale-render.png`
+- `docs/dashboard-dark-source-mobile-render.png`
+
+Each image is labeled **not a browser capture**. They show the actual component/state/styles, but static document engines do not faithfully render every native input, scrolling or browser layout detail. Responsive CSS rules were resolved at the target document width (desktop 1440px, narrow 390px). These are useful visual snapshots, **not** certification of browser behavior, screen-reader navigation, all WCAG criteria or touch interactions. Form labels/current-step/status semantics and selected contrast pairs are tested separately. Native focus states are implemented but need final human browser/screen-reader QA.
+
+No Shell-driven browser automation was used. The live local QA dashboard remains available for a legitimate browser-side review at `http://172.30.0.2:9124/rowverdict`, protected by the existing QA authentication. Credentials are not in this repository.
+
+## Reproduce on this box
+
+- Run all Python tests using the PM-prepared interpreter that contains the declared dependency plus the host's FastAPI/httpx.
+- `hermes plugins validate /absolute/path/to/rowverdict --install-deps --json`
+- `hermes plugins doctor /absolute/path/to/rowverdict --ci`
+- Box-local integration runner: `/workspace/hackathons/hermes-plugin/verify-host-v020.py`; it intentionally uses this disposable QA profile, creates synthetic fixtures and never approves a native export.
+- Box-local non-DOM component driver: `/workspace/hackathons/hermes-plugin/ui-qa/verify.cjs`.
+- Box-local document renderer: `/workspace/hackathons/hermes-plugin/render-dark-documents.py`.
+
+The final local catalog entry/patch lives outside the plugin repository under `catalog-prepared`; structural validation is recorded there. Publishing the plugin commit and updating PR #153092 are separate approval-required steps. The demo script was refreshed; no new video, post or form submission is claimed.

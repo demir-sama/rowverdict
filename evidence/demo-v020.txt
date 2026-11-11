@@ -1,0 +1,15 @@
+ROWVERDICT / deterministic core demonstration
+Offline QA only. Native human approval is tested separately.
+INSPECT  10,000 records / 8 columns / full scan
+PLAN     9,977 clean + 23 quarantine = 10,000 input
+ISSUES   DATE_FORMAT=5, DUPLICATE_KEY=3, ENUM=3, FORMULA=2, RANGE=2, REQUIRED=4, ROW_WIDTH=1, TYPE=3
+REPAIRS  ordered_on=9977, customer=88
+POLICY   ID strings kept; DD/MM dates -> ISO; no guessed values
+EXPORT   clean.csv + quarantine.json + receipt.json (private, atomic)
+VERIFY   source unchanged; artifact SHA256 hashes recorded
+ID       000042 preserved in actual clean CSV bytes
+DRIFT    added column: channel; ENUM delta: +2
+STALE    source changed after review -> export REFUSED
+RELOAD   SQLite history: STALE, EXPORTED; receipt retained
+RESULT   No rows disappear. No network. No silent repairs.
+WORKSPACE /tmp/rowverdict-demo-egajxcum

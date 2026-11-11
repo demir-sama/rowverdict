@@ -1,0 +1,8 @@
+/workspace/hackathons/hermes-plugin/rowverdict/docs/dashboard-dark-source-render.png
+/workspace/hackathons/hermes-plugin/rowverdict/docs/dashboard-dark-contract-render.png
+/workspace/hackathons/hermes-plugin/rowverdict/docs/dashboard-dark-review-render.png
+/workspace/hackathons/hermes-plugin/rowverdict/docs/dashboard-dark-replay-render.png
+/workspace/hackathons/hermes-plugin/rowverdict/docs/dashboard-dark-export-render.png
+/workspace/hackathons/hermes-plugin/rowverdict/docs/dashboard-dark-stale-render.png
+/workspace/hackathons/hermes-plugin/rowverdict/docs/dashboard-dark-source-mobile-render.png
+PASS: all eleven sampled foreground/control/focus pairs meet WCAG AA numeric thresholds; not a full browser accessibility certification

@@ -1,6 +1,6 @@
 name: rowverdict
-version: "0.1.0"
-description: "Review deterministic CSV repair/quarantine plans, refuse stale input, and export immutable source-bound receipts. Local-only; no per-row inference."
+version: "0.2.0"
+description: "Draft/review CSV/XLSX/JSON contracts, replay quarantined rows, refuse stale input, and export immutable source-bound receipts. Local-only; no per-row inference."
 author: "demir-sama"
 requires_hermes: ">=0.23.1"
 provides_tools:
@@ -8,10 +8,17 @@ provides_tools:
   - rowverdict_plan
   - rowverdict_export
   - rowverdict_history
+  - rowverdict_draft
+  - rowverdict_review
+  - rowverdict_replay
 provides_hooks:
   - pre_tool_call
 config_schema:
   allowed_roots:
     type: list
     default: []
-    description: "Operator-owned absolute input directories. Empty denies all inputs. Use a narrow directory containing only CSVs you intend to process."
+    description: "Operator-owned absolute input directories. Empty denies all inputs. Use a narrow directory containing only input files you intend to process."
+  allow_dashboard_uploads:
+    type: bool
+    default: false
+    description: "Explicit opt-in to local dashboard uploads in private plugin-data/uploads. Never uploads to any external service; disabled by default."

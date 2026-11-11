@@ -1,10 +1,13 @@
 {
   "name": "rowverdict",
   "label": "RowVerdict",
-  "description": "A review desk for deterministic CSV import plans and source-bound receipts.",
+  "description": "Local table contracts, quarantine corrections, replay plans and receipt-bound audits.",
   "icon": "Shield",
-  "version": "0.1.0",
-  "tab": {"path": "/rowverdict", "position": "after:skills"},
+  "version": "0.2.0",
+  "tab": {
+    "path": "/rowverdict",
+    "position": "after:skills"
+  },
   "entry": "dist/index.js",
   "css": "dist/style.css",
   "api": "plugin_api.py"

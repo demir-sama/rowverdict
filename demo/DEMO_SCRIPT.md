@@ -1,43 +1,30 @@
-# RowVerdict — 80-second demo
+# RowVerdict 0.2.0 — 80-second demo
 
-Target **80 seconds**, 75–85 allowed. About 190 spoken words; rehearse at 145–150
-words/minute with short pauses. Use only the synthetic fixtures. Do not claim a
-live model or a human approval happened unless it actually did on the recording.
+Target **75–85 seconds**, about 190 spoken words at 145–150 words/minute with pauses. Use synthetic fixtures only. This is an updated recording script, not a claim that a new video or submission already exists.
 
 ## Recording prerequisites
 
-1. Install/enable in Hermes >=0.23.1; configure a narrow input root outside `.hermes`.
-2. Copy both sample CSVs to a disposable inbox. Use the same `orders.csv` path for
-   revision/drift, and the matching explicitly reviewed contract for each schema.
-3. Open the real dashboard RowVerdict tab; enlarge readable text. Pre-stage commands,
-   not fabricated outputs. Hide unrelated accounts/keys. Do not show provider settings.
-4. Have normal provider sign-in completed for a live chat. The offline core works
-   without it, but label an offline recording “deterministic core demo” instead.
-5. The baseline is **9,977 clean / 23 quarantine / 10,000 input**. Revision adds
-   `channel` and two enum issues; do not replace measured counts with marketing numbers.
+- Enable RowVerdict on Hermes >=0.23.1, with its declared dependency and a narrow dedicated inbox. For file drop/selection explicitly enable allow_dashboard_uploads; uploads stay local.
+- Open the real RowVerdict dashboard, true-dark mode. Pre-stage commands, not fake outputs. Hide unrelated settings/secrets.
+- Use the 10,000-order worldwide CSV and its explicit reviewed demo contract: **9,977 clean / 23 quarantined**. A draft is only a starting proposal; accept the deliberately reviewed demo policy, not an inferred string policy that overlooks errors.
+- Choose a quarantined TYPE-only record, correct its amount to 12.50, then preview/replay. Measured test result: **9,978 clean / 22 quarantined**.
+- Live affirmative native export needs an actual human approval and a working model/chat session. Do not simulate that approval. If unavailable, label the recording an offline deterministic-core/API demo and use the alternative line below.
 
 ## Shot list + voiceover
 
 | Time | On screen | Say |
 |---|---|---|
-| 0–10 | Synthetic CSV, zero-padded identifier; switch to Hermes | “A CSV can look fine in chat and still break your import. RowVerdict gives Hermes a reviewable transaction, not a best-effort cleanup prompt.” |
-| 10–25 | Invoke native inspect + plan using the explicit demo contract; open queue/evidence | “This is ten thousand synthetic orders across twenty countries. Every record is checked. Nothing is sampled. Nine thousand nine hundred seventy-seven are clean; twenty-three are quarantined. Duplicate identifiers, wrong date formats, and formula-like cells stay out.” |
-| 25–40 | Contract tab; show ID policy, trim and DD/MM date policy; highlight record evidence | “I choose the policy: keep identifiers as strings, trim customer names, and normalize explicitly declared dates. No guessed money formats. No keeping the first duplicate and quietly dropping the others. The contract, not inference, decides.” |
-| 40–55 | Native export request, actual host approval prompt, user approves; receipt and artifact directory | “I review the plan and approve this exact export in Hermes. The original stays unchanged. Clean rows, raw quarantined records, and a hash-bound receipt are written together. Both data files have independently recorded verification hashes.” |
-| 55–70 | Replace disposable source with revision; new contract/plan; drift shows channel and +2 enum; then mutate source and request export | “The next export adds a column; drift makes it visible. Now I change the source after review. RowVerdict refuses the stale plan instead of exporting something I never approved. A new review is required.” |
-| 70–80 | Refresh dashboard/history; EXPORTED and STALE states remain | “Reload the review desk: the evidence and receipt persist. No rows disappear. No uploads. No silent repairs. Local, deterministic, and auditable. RowVerdict for Hermes.” |
+| 0–10 | Dark Source step; CSV/XLSX/JSON format support | “A clean-looking file can still break your import. RowVerdict gives Hermes an explicit data contract, a quarantine desk, and evidence you can actually keep.” |
+| 10–24 | Draft a contract, DRAFT badge, edited ID/date policy and review acknowledgement | “Start with CSV, Excel, or JSON. Draft a contract from a sample, then review it. Identifiers stay strings. Ambiguous dates are not guessed. A draft never silently becomes the policy.” |
+| 24–37 | Create plan; full counts and filtered reasons | “The real plan checks every record: ten thousand synthetic worldwide orders. Nine thousand nine hundred seventy-seven clean; twenty-three quarantined. Every duplicate stays out. Nothing disappears.” |
+| 37–52 | Correct TYPE-only record, stage patch, preview and child plan | “Fix a rejected amount here, then replay through the same contract. All records and duplicate keys are checked again. This creates a new plan, not an unapproved export. The original and parent remain unchanged.” |
+| 52–66 | Native export request; actual human approval; immutable receipt/report | “Review the child plan and approve its exact export in Hermes. Clean rows, quarantine, a receipt, and this self-contained HTML audit are written together. Hashes bind the source, policy, patch, and artifacts.” |
+| 66–80 | Change disposable source, stale refusal, history and HTML report | “Change the source after review: export refuses. Reload: the history persists. Share the audit without scripts or remote assets. Local data, explicit decisions, no silent fixes. RowVerdict for Hermes.” |
 
 ## Honesty / contingency
 
-- Do not auto-answer or simulate a host approval, even in a demo. Get the actual
-  human click. The present build verified fail-closed unattended approval, not the
-  live affirmative human round-trip.
-- If provider sign-in remains unavailable, show `python3 scripts/demo_run.py` as a
-  clearly labeled **offline deterministic-core demo**. Replace the 40–55 voiceover:
-  “This offline QA command exports the reviewed fixture. In Hermes, the native
-  export tool additionally requests the host's human approval.” Do not overlay a
-  fake chat or approval prompt.
-- The dashboard is read-only, so there is no “Approve” button in this plugin panel.
-- Keep raw formula text confined to the synthetic input/JSON view; never activate a
-  link or paste it into a spreadsheet. Only source code/text should be recorded.
-- No video, X post, catalog PR or submission form is sent by these instructions.
+- The dashboard cannot approve or publish clean exports. Its export step provides a native-tool handoff; `/rowverdict export ID` does the same, because stable registry dispatch does not run pre-tool hooks.
+- If no live affirmative approval is available, replace 52–66 with: “This labeled offline QA export writes clean rows, quarantine, a receipt, and a self-contained audit. In a live Hermes session, the native export tool additionally requires the host approval card.” Do not retry a denied host action via the QA CLI/library; use a separate explicitly labeled test fixture.
+- Browser-free React/API test renders are document snapshots, not live-browser recordings. Do not present them as footage of a human using the browser.
+- Native Excel formulas are never evaluated. Keep raw formula text inside the synthetic JSON/text view; never activate a link or paste it into a spreadsheet.
+- No video, public push, X post, catalog update or submission is sent by these instructions.

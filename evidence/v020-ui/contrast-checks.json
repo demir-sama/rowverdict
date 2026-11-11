@@ -1,0 +1,90 @@
+[
+  {
+    "label": "body text",
+    "foreground": "#f5f5f5",
+    "background": "#050505",
+    "ratio": 18.69,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "label": "muted labels",
+    "foreground": "#b8b8b8",
+    "background": "#0c0c0c",
+    "ratio": 9.86,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "label": "placeholders",
+    "foreground": "#a3a3a3",
+    "background": "#101010",
+    "ratio": 7.54,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "label": "accent/status text",
+    "foreground": "#b5f5d0",
+    "background": "#0c0c0c",
+    "ratio": 15.78,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "label": "warning/reason text",
+    "foreground": "#ffda97",
+    "background": "#0c0c0c",
+    "ratio": 14.65,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "label": "error text",
+    "foreground": "#ffd1d1",
+    "background": "#241313",
+    "ratio": 12.99,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "label": "primary button text",
+    "foreground": "#07110b",
+    "background": "#b5f5d0",
+    "ratio": 15.48,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "label": "neutral badge text",
+    "foreground": "#e0e0e0",
+    "background": "#181818",
+    "ratio": 13.45,
+    "minimum": 4.5,
+    "pass": true
+  },
+  {
+    "label": "input boundary",
+    "foreground": "#707070",
+    "background": "#101010",
+    "ratio": 3.84,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "label": "button boundary",
+    "foreground": "#666666",
+    "background": "#161616",
+    "ratio": 3.15,
+    "minimum": 3,
+    "pass": true
+  },
+  {
+    "label": "keyboard focus indicator",
+    "foreground": "#b5f5d0",
+    "background": "#050505",
+    "ratio": 16.44,
+    "minimum": 3,
+    "pass": true
+  }
+]

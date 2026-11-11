@@ -8,3 +8,6 @@ __pycache__/
 exports/
 .state/
 evidence/private/
+# Large intermediate document-render artifacts stay on the box, not in the plugin.
+evidence/v020-ui/*.html
+evidence/v020-ui/*.pdf

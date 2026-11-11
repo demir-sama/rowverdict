@@ -183,8 +183,8 @@ class CoreTests(unittest.TestCase):
         with self.assertRaisesRegex(Refusal, "regular"):
             self.app.inspect(str(target))
 
-    def test_non_csv_refused(self):
-        target = self.inputs / "data.json"
+    def test_unsupported_format_refused(self):
+        target = self.inputs / "data.pdf"
         target.write_text("{}")
         with self.assertRaisesRegex(Refusal, "only .csv"):
             self.app.inspect(str(target))

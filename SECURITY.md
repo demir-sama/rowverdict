@@ -1,28 +1,15 @@
-# Security
+# Security boundary
 
-Read the README's boundary before using sensitive CSVs. RowVerdict is not a sandbox,
-an anonymizer, an accounting validator or a global agent firewall.
+RowVerdict is an offline import-preparation plugin, not a sandbox, DLP product or universal spreadsheet-security guarantee.
 
-## Trust and storage
+- Source access requires operator-configured allowed_roots. Empty roots deny external reads. Private browser-selected uploads are separately opt-in and restricted to plugin-data/uploads; they do not grant access to adjacent .hermes configuration. Inputs are regular files, with traversal/symlink and known credential-store refusal. Local same-user OS state is trusted; directory replacement races are not fully eliminated.
+- Inputs are bounded by bytes, records, cells, columns and cell length. JSON is flat only, rejects duplicate keys/nonfinite constants, and preserves number-token text. XLSX never evaluates formulas or fetches relationships/links; defusedxml==0.7.1 rejects DTD/entities, and ZIP member/expansion/ratio limits reduce decompression risks. Unsupported display formatting is not guessed.
+- Draft inference is a proposal only. Applying a source's drafted policy requires an exact immutable review. Native review uses the host approval hook; dashboard acceptance requires an explicit authenticated operator action with source-hash match and acknowledgement. This is not proof against an owner/host policy that deliberately automates approvals.
+- Replay changes quarantined records only, uses the same contract, preserves row counts/order, rechecks all duplicate keys and binds source/engine/policy/patch hashes. Plans/replay previews publish no clean artifacts. Patch-file changes permanently stale an unexported child. Inline patches are sensitive raw data retained in private SQLite.
+- Clean artifact publication is only the native host-approved export tool (or explicitly human-invoked development library/CLI, never an agent retry after denial). The dashboard deliberately has NO export endpoint. Stable ctx.dispatch_tool does not run the pre-tool hook, so slash review/export are safe handoffs rather than direct dispatch.
+- Exports are immutable private directories with receipt-verified clean.csv, quarantine.json, audit.html and receipt.json. Raw rejected cells remain sensitive; JSON is not spreadsheet-safe to paste elsewhere. HTML escapes untrusted metadata, contains no scripts/external assets and excludes raw rows; paths/schema/enum values may still be sensitive. A receipt-core hash avoids circular report hashing and is not an external signature.
+- Host authentication/profile isolation protect the dashboard. Source paths, contracts, counts, issue metadata and inferred small category enums can reach the configured Hermes model; arbitrary source samples are not returned by inspect/history. Corrections and raw quarantine are available only through intentional local UI/API operations. Other host tools can still read files: there is no broad agent firewall.
+- No network, telemetry, secrets, subprocesses, arbitrary code/SQL or self-update behavior in plugin runtime. defusedxml is declared, not downloaded ad hoc. Host-owned FastAPI/React provide the dashboard.
+- No encryption at rest, automatic retention/deletion, regulatory certification, cross-platform filesystem certification or hostile multi-tenant isolation. Use narrow roots, review policy/evidence, and protect plugin-data like the underlying source.
 
-- Only explicitly operator-allowlisted CSV roots; no tool broadens them.
-- No network, telemetry, secret reads, subprocesses, arbitrary code or runtime updater.
-- Only RowVerdict's private plugin-data is written; original CSVs remain untouched.
-- Source and explicit contract hashes bind a plan. Changes invalidate an unexported plan.
-- The native export hook asks the host approval gate. No dashboard export route exists.
-- Raw rejected cells persist only in the private `quarantine.json` export. State and
-  outputs are not encrypted. Plans expose paths, headers, contracts and aggregate
-  metadata to the configured Hermes model.
-- Formula-like text quarantines, not executes. Use type-aware importers and text
-  columns for identifiers. Formula defense is conservative, not universal.
-- POSIX local filesystems and the OS account are trusted. Symlink checks do not
-  promise resistance to a hostile concurrent same-user process.
-
-## Reporting
-
-Do not publish real rows, tokens or private paths in a public issue. Once the public
-repository exists, use GitHub private vulnerability reporting if enabled. Otherwise
-contact the repository owner privately through a channel you already trust. Include
-a synthetic reproducer, platform, version and the expected/actual behavior.
-
-No disclosure destination/account is invented by this document.
+Report vulnerabilities privately to the repository owner; never include real customer data or credentials in a public issue.

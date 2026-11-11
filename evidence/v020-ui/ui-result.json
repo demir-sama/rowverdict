@@ -1,0 +1,8 @@
+{
+  "checks": 24,
+  "parent_id": "5df01a8be124443392e9712dc3e1d9a4",
+  "child_id": "39936aca70d343a696b4105f82fb2222",
+  "source": "/workspace/hackathons/hermes-plugin/demo-work/v020-d4322f235c3d406c86bc8a77a56a3edc/orders-worldwide.csv",
+  "react": "19.3.0",
+  "not_a_browser_capture": true
+}

@@ -1,0 +1,6 @@
+[project]
+name = "rowverdict"
+version = "0.2.0"
+description = "Offline reviewed table contracts and immutable audit receipts for Hermes"
+requires-python = ">=3.11"
+dependencies = ["defusedxml==0.7.1"]

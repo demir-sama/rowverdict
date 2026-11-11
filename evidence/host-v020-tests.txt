@@ -1,0 +1,50 @@
+/workspace/hackathons/hermes-plugin/runtime-home/installs/34d8dcde5485679f/environments/aa3ccbed204245d69dc3c71b6e841a1c/venv/lib/python3.14/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+  from starlette.testclient import TestClient as TestClient  # noqa
+react-test-renderer is deprecated. See https://react.dev/warnings/react-test-renderer
+PASS: real exported receipt-backed history is visible (separate offline QA fixture)
+PASS: actual SDK-only component registered and rendered
+CAPTURE: dashboard-dark-source (actual React tree + real API state; not a browser screenshot)
+PASS: source inspection calls the real authenticated host API
+PASS: auto-draft is visibly DRAFT
+PASS: draft cannot become a plan before review
+CAPTURE: dashboard-dark-contract (actual React tree + real API state; not a browser screenshot)
+PASS: explicit review persists an exact source-bound policy
+PASS: dashboard-created plan scans 10,000 real fixture records
+CAPTURE: dashboard-dark-review (actual React tree + real API state; not a browser screenshot)
+PASS: quarantine values are hidden by default in local table
+PASS: reason filter is backed by real full quarantine data
+PASS: quarantine search has a real empty result, not fixture substitution
+PASS: correction form stages the exact quarantined logical record
+PASS: replay preview rechecks actual data without exporting
+CAPTURE: dashboard-dark-replay (actual React tree + real API state; not a browser screenshot)
+PASS: replay creates a new plan and merges corrections once
+PASS: parent plan remains unchanged
+PASS: export step supplies the new exact native approval request
+PASS: dashboard never exposes an export-approval bypass
+PASS: real report preview is escaped, self-contained and explicitly unapproved
+CAPTURE: dashboard-dark-export (actual React tree + real API state; not a browser screenshot)
+PASS: freshness check permanently marks changed input STALE
+CAPTURE: dashboard-dark-stale (actual React tree + real API state; not a browser screenshot)
+PASS: native form control has associated label: rv-history-search
+PASS: native form control has associated label: rv-state
+PASS: native form control has associated label: rv-search
+PASS: native form control has associated label: rv-reason
+PASS: workflow exposes exactly one current step
+PASS: status updates are announced politely
+UI_CHECKS=24
+plugin-escalated tool call 'rowverdict_review' in non-interactive non-gateway context (pattern: plugin_rule:rowverdict-review:bc0d7232a5194048b12da331551d8432:943a56e0dc0b2c47238b4c5458c69c4dc5d6c99d4ef9cc6fa8292b96e0352833): Review this exact DRAFT contract before accepting it. Source SHA256 27ea894e657e4ede2fe1a1e9a8d26002285dae1c9b065b17753807f2369d8e9c; policy SHA256 943a56e0dc0b2c47238b4c5458c69c4dc5d6c99d4ef9cc6fa8292b96e0352833. Check ID strings, dates, enum coverage and required fields. Proposed contract: {"columns":[{"name":"id","required":true,"trim":false,"type":"string"},{"name":"amount","required":true,"trim":false,"type":"integer"}],"delimiter":",","unique_key":["id"]} — no interactive user/gateway present; BLOCKED (fail-closed). Set HERMES_INTERACTIVE or HERMES_GATEWAY_SESSION to answer the prompt.
+plugin-escalated tool call 'rowverdict_export' in non-interactive non-gateway context (pattern: plugin_rule:rowverdict-export:40b8b5355bf94ffe8d1a8ca62d22b638): RowVerdict export 40b8b5355bf94ffe8d1a8ca62d22b638: 1 clean + 0 quarantine = 1 input records. Source SHA256 27ea894e657e4ede2fe1a1e9a8d26002285dae1c9b065b17753807f2369d8e9c; policy SHA256 4821ca9e937575caec273a8709f7fad497e31f06136eb8806e1d6698f3c732a2. Writes private clean.csv, raw-cell quarantine.json, audit.html and receipt.json under RowVerdict plugin-data only. Source unchanged. Review contract/evidence before approving. — no interactive user/gateway present; BLOCKED (fail-closed). Set HERMES_INTERACTIVE or HERMES_GATEWAY_SESSION to answer the prompt.
+PASS: separate explicit offline-library QA fixture provides real EXPORTED history; no native human approval claimed
+PASS: seven native tools discovered on Hermes stable v0.23.1
+PASS: real registered slash inspect works; export is a safe native-tool handoff
+PASS: real host denies unauthenticated reads and writes (401)
+PASS: real host serves the 0.2.0 API and actual dashboard manifest/JS/CSS
+PASS: no dashboard export endpoint exists
+PASS: actual native .json parser/dependency works; XLSX formulas are quarantined, not evaluated
+PASS: actual native .jsonl parser/dependency works; XLSX formulas are quarantined, not evaluated
+PASS: actual native .xlsx parser/dependency works; XLSX formulas are quarantined, not evaluated
+PASS: native host hook refuses changed-source UI plan 5df01a8be124443392e9712dc3e1d9a4
+PASS: native host hook refuses changed-source UI plan 39936aca70d343a696b4105f82fb2222
+PASS: actual host approval gate refuses unattended native draft acceptance
+PASS: actual stable host refuses unattended native export; no artifacts produced
+PASS: no denied action retried via CLI/library or another path
