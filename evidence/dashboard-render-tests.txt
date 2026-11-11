@@ -1,0 +1,4 @@
+PASS: real React server-render shows measured 10,000 / 9,977 / 23 counts and no raw rejected cells
+PASS: contract, drift and receipt tabs render actual policy, lineage and explicit host-gated next step
+PASS: row evidence filter and descending record order render without a DOM or external fetch
+PASS: refresh uses SDK same-origin JSON client and preserves selected plan

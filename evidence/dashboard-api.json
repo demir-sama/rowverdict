@@ -1,0 +1,827 @@
+{
+  "runs": [
+    {
+      "id": "bb99764847e14642ae2ce98b461188cc",
+      "created": "2026-11-11T02:24:53.007239+00:00",
+      "source": "/workspace/hackathons/hermes-plugin/rowverdict/demo/orders-worldwide.csv",
+      "source_sha256": "8069fa644ab6ca76787ad77b4034b8f3d3531e764d5ccec7682859ffc14762fb",
+      "policy_sha256": "7ad65dc5e239257c752ee40d29b43127a01aa6f5ef4990d9284dad07fe7c4317",
+      "contract": {
+        "columns": [
+          {
+            "name": "order_id",
+            "required": true,
+            "trim": false,
+            "type": "string"
+          },
+          {
+            "name": "customer",
+            "required": true,
+            "trim": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "US",
+              "BR",
+              "GB",
+              "DE",
+              "JP",
+              "IN",
+              "AU",
+              "ZA",
+              "NG",
+              "KE",
+              "CA",
+              "MX",
+              "AE",
+              "SG",
+              "FR",
+              "KR",
+              "NZ",
+              "AR",
+              "SE",
+              "ID"
+            ],
+            "name": "country",
+            "required": true,
+            "trim": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AED",
+              "ARS",
+              "AUD",
+              "BRL",
+              "CAD",
+              "EUR",
+              "GBP",
+              "IDR",
+              "INR",
+              "JPY",
+              "KES",
+              "KRW",
+              "MXN",
+              "NGN",
+              "NZD",
+              "SEK",
+              "SGD",
+              "USD",
+              "ZAR"
+            ],
+            "name": "currency",
+            "required": true,
+            "trim": false,
+            "type": "string"
+          },
+          {
+            "decimal_separator": ".",
+            "max": "1000000",
+            "min": "0",
+            "name": "amount",
+            "required": true,
+            "trim": false,
+            "type": "decimal"
+          },
+          {
+            "date_format": "%d/%m/%Y",
+            "name": "ordered_on",
+            "required": true,
+            "trim": false,
+            "type": "date"
+          },
+          {
+            "enum": [
+              "paid",
+              "pending",
+              "refunded"
+            ],
+            "name": "status",
+            "required": true,
+            "trim": false,
+            "type": "string"
+          },
+          {
+            "name": "reference",
+            "required": false,
+            "trim": false,
+            "type": "string"
+          }
+        ],
+        "delimiter": ",",
+        "unique_key": [
+          "order_id"
+        ]
+      },
+      "summary": {
+        "changed_clean_cells": {
+          "customer": 88,
+          "ordered_on": 9977
+        },
+        "clean_decimal_totals": {
+          "amount": "5448702.53"
+        },
+        "clean_rows": 9977,
+        "engine_sha256": "14bc2e1e3ea65d242f4acb926c1e237ab55e58c885998fe00d4b4c4f8a718c0e",
+        "engine_version": "0.1.0",
+        "evidence": [
+          {
+            "code": "DUPLICATE_KEY",
+            "column": "order_id",
+            "row": 101
+          },
+          {
+            "code": "DUPLICATE_KEY",
+            "column": "order_id",
+            "row": 102
+          },
+          {
+            "code": "DUPLICATE_KEY",
+            "column": "order_id",
+            "row": 103
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 202
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 203
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 204
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 205
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 206
+          },
+          {
+            "code": "TYPE",
+            "column": "amount",
+            "row": 302
+          },
+          {
+            "code": "TYPE",
+            "column": "amount",
+            "row": 303
+          },
+          {
+            "code": "TYPE",
+            "column": "amount",
+            "row": 304
+          },
+          {
+            "code": "FORMULA",
+            "column": "reference",
+            "row": 402
+          },
+          {
+            "code": "FORMULA",
+            "column": "reference",
+            "row": 403
+          },
+          {
+            "code": "REQUIRED",
+            "column": "customer",
+            "row": 502
+          },
+          {
+            "code": "REQUIRED",
+            "column": "customer",
+            "row": 503
+          },
+          {
+            "code": "REQUIRED",
+            "column": "customer",
+            "row": 504
+          },
+          {
+            "code": "REQUIRED",
+            "column": "customer",
+            "row": 505
+          },
+          {
+            "code": "ENUM",
+            "column": "status",
+            "row": 602
+          },
+          {
+            "code": "ENUM",
+            "column": "status",
+            "row": 603
+          },
+          {
+            "code": "ENUM",
+            "column": "status",
+            "row": 604
+          },
+          {
+            "code": "RANGE",
+            "column": "amount",
+            "row": 702
+          },
+          {
+            "code": "RANGE",
+            "column": "amount",
+            "row": 703
+          },
+          {
+            "code": "ROW_WIDTH",
+            "column": "(record)",
+            "row": 802
+          }
+        ],
+        "evidence_truncated": false,
+        "input_rows": 10000,
+        "issue_counts": {
+          "DATE_FORMAT": 5,
+          "DUPLICATE_KEY": 3,
+          "ENUM": 3,
+          "FORMULA": 2,
+          "RANGE": 2,
+          "REQUIRED": 4,
+          "ROW_WIDTH": 1,
+          "TYPE": 3
+        },
+        "quarantined_rows": 23,
+        "row_conservation": true
+      },
+      "drift": {
+        "added_columns": [],
+        "contract_changed": false,
+        "input_rows_delta": 0,
+        "issue_delta": {
+          "DATE_FORMAT": 0,
+          "DUPLICATE_KEY": 0,
+          "ENUM": 0,
+          "FORMULA": 0,
+          "RANGE": 0,
+          "REQUIRED": 0,
+          "ROW_WIDTH": 0,
+          "TYPE": 0
+        },
+        "order_changed": false,
+        "previous_plan_id": "415bea5fa5614aa7bc41ac0890eaae7a",
+        "removed_columns": []
+      },
+      "state": "PLANNED",
+      "receipt": null
+    },
+    {
+      "id": "415bea5fa5614aa7bc41ac0890eaae7a",
+      "created": "2026-11-11T02:21:43.814939+00:00",
+      "source": "/workspace/hackathons/hermes-plugin/rowverdict/demo/orders-worldwide.csv",
+      "source_sha256": "8069fa644ab6ca76787ad77b4034b8f3d3531e764d5ccec7682859ffc14762fb",
+      "policy_sha256": "7ad65dc5e239257c752ee40d29b43127a01aa6f5ef4990d9284dad07fe7c4317",
+      "contract": {
+        "columns": [
+          {
+            "name": "order_id",
+            "required": true,
+            "trim": false,
+            "type": "string"
+          },
+          {
+            "name": "customer",
+            "required": true,
+            "trim": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "US",
+              "BR",
+              "GB",
+              "DE",
+              "JP",
+              "IN",
+              "AU",
+              "ZA",
+              "NG",
+              "KE",
+              "CA",
+              "MX",
+              "AE",
+              "SG",
+              "FR",
+              "KR",
+              "NZ",
+              "AR",
+              "SE",
+              "ID"
+            ],
+            "name": "country",
+            "required": true,
+            "trim": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AED",
+              "ARS",
+              "AUD",
+              "BRL",
+              "CAD",
+              "EUR",
+              "GBP",
+              "IDR",
+              "INR",
+              "JPY",
+              "KES",
+              "KRW",
+              "MXN",
+              "NGN",
+              "NZD",
+              "SEK",
+              "SGD",
+              "USD",
+              "ZAR"
+            ],
+            "name": "currency",
+            "required": true,
+            "trim": false,
+            "type": "string"
+          },
+          {
+            "decimal_separator": ".",
+            "max": "1000000",
+            "min": "0",
+            "name": "amount",
+            "required": true,
+            "trim": false,
+            "type": "decimal"
+          },
+          {
+            "date_format": "%d/%m/%Y",
+            "name": "ordered_on",
+            "required": true,
+            "trim": false,
+            "type": "date"
+          },
+          {
+            "enum": [
+              "paid",
+              "pending",
+              "refunded"
+            ],
+            "name": "status",
+            "required": true,
+            "trim": false,
+            "type": "string"
+          },
+          {
+            "name": "reference",
+            "required": false,
+            "trim": false,
+            "type": "string"
+          }
+        ],
+        "delimiter": ",",
+        "unique_key": [
+          "order_id"
+        ]
+      },
+      "summary": {
+        "changed_clean_cells": {
+          "customer": 88,
+          "ordered_on": 9977
+        },
+        "clean_decimal_totals": {
+          "amount": "5448702.53"
+        },
+        "clean_rows": 9977,
+        "evidence": [
+          {
+            "code": "DUPLICATE_KEY",
+            "column": "order_id",
+            "row": 101
+          },
+          {
+            "code": "DUPLICATE_KEY",
+            "column": "order_id",
+            "row": 102
+          },
+          {
+            "code": "DUPLICATE_KEY",
+            "column": "order_id",
+            "row": 103
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 202
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 203
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 204
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 205
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 206
+          },
+          {
+            "code": "TYPE",
+            "column": "amount",
+            "row": 302
+          },
+          {
+            "code": "TYPE",
+            "column": "amount",
+            "row": 303
+          },
+          {
+            "code": "TYPE",
+            "column": "amount",
+            "row": 304
+          },
+          {
+            "code": "FORMULA",
+            "column": "reference",
+            "row": 402
+          },
+          {
+            "code": "FORMULA",
+            "column": "reference",
+            "row": 403
+          },
+          {
+            "code": "REQUIRED",
+            "column": "customer",
+            "row": 502
+          },
+          {
+            "code": "REQUIRED",
+            "column": "customer",
+            "row": 503
+          },
+          {
+            "code": "REQUIRED",
+            "column": "customer",
+            "row": 504
+          },
+          {
+            "code": "REQUIRED",
+            "column": "customer",
+            "row": 505
+          },
+          {
+            "code": "ENUM",
+            "column": "status",
+            "row": 602
+          },
+          {
+            "code": "ENUM",
+            "column": "status",
+            "row": 603
+          },
+          {
+            "code": "ENUM",
+            "column": "status",
+            "row": 604
+          },
+          {
+            "code": "RANGE",
+            "column": "amount",
+            "row": 702
+          },
+          {
+            "code": "RANGE",
+            "column": "amount",
+            "row": 703
+          },
+          {
+            "code": "ROW_WIDTH",
+            "column": "(record)",
+            "row": 802
+          }
+        ],
+        "evidence_truncated": false,
+        "input_rows": 10000,
+        "issue_counts": {
+          "DATE_FORMAT": 5,
+          "DUPLICATE_KEY": 3,
+          "ENUM": 3,
+          "FORMULA": 2,
+          "RANGE": 2,
+          "REQUIRED": 4,
+          "ROW_WIDTH": 1,
+          "TYPE": 3
+        },
+        "quarantined_rows": 23,
+        "row_conservation": true
+      },
+      "drift": {
+        "added_columns": [],
+        "contract_changed": false,
+        "input_rows_delta": 0,
+        "issue_delta": {
+          "DATE_FORMAT": 0,
+          "DUPLICATE_KEY": 0,
+          "ENUM": 0,
+          "FORMULA": 0,
+          "RANGE": 0,
+          "REQUIRED": 0,
+          "ROW_WIDTH": 0,
+          "TYPE": 0
+        },
+        "order_changed": false,
+        "previous_plan_id": "ad8cff4660bf43a1873e61e6481943dc",
+        "removed_columns": []
+      },
+      "state": "PLANNED",
+      "receipt": null
+    },
+    {
+      "id": "ad8cff4660bf43a1873e61e6481943dc",
+      "created": "2026-11-11T02:15:59.934351+00:00",
+      "source": "/workspace/hackathons/hermes-plugin/rowverdict/demo/orders-worldwide.csv",
+      "source_sha256": "8069fa644ab6ca76787ad77b4034b8f3d3531e764d5ccec7682859ffc14762fb",
+      "policy_sha256": "7ad65dc5e239257c752ee40d29b43127a01aa6f5ef4990d9284dad07fe7c4317",
+      "contract": {
+        "columns": [
+          {
+            "name": "order_id",
+            "required": true,
+            "trim": false,
+            "type": "string"
+          },
+          {
+            "name": "customer",
+            "required": true,
+            "trim": true,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "US",
+              "BR",
+              "GB",
+              "DE",
+              "JP",
+              "IN",
+              "AU",
+              "ZA",
+              "NG",
+              "KE",
+              "CA",
+              "MX",
+              "AE",
+              "SG",
+              "FR",
+              "KR",
+              "NZ",
+              "AR",
+              "SE",
+              "ID"
+            ],
+            "name": "country",
+            "required": true,
+            "trim": false,
+            "type": "string"
+          },
+          {
+            "enum": [
+              "AED",
+              "ARS",
+              "AUD",
+              "BRL",
+              "CAD",
+              "EUR",
+              "GBP",
+              "IDR",
+              "INR",
+              "JPY",
+              "KES",
+              "KRW",
+              "MXN",
+              "NGN",
+              "NZD",
+              "SEK",
+              "SGD",
+              "USD",
+              "ZAR"
+            ],
+            "name": "currency",
+            "required": true,
+            "trim": false,
+            "type": "string"
+          },
+          {
+            "decimal_separator": ".",
+            "max": "1000000",
+            "min": "0",
+            "name": "amount",
+            "required": true,
+            "trim": false,
+            "type": "decimal"
+          },
+          {
+            "date_format": "%d/%m/%Y",
+            "name": "ordered_on",
+            "required": true,
+            "trim": false,
+            "type": "date"
+          },
+          {
+            "enum": [
+              "paid",
+              "pending",
+              "refunded"
+            ],
+            "name": "status",
+            "required": true,
+            "trim": false,
+            "type": "string"
+          },
+          {
+            "name": "reference",
+            "required": false,
+            "trim": false,
+            "type": "string"
+          }
+        ],
+        "delimiter": ",",
+        "unique_key": [
+          "order_id"
+        ]
+      },
+      "summary": {
+        "changed_clean_cells": {
+          "customer": 88,
+          "ordered_on": 9977
+        },
+        "clean_decimal_totals": {
+          "amount": "5448702.53"
+        },
+        "clean_rows": 9977,
+        "evidence": [
+          {
+            "code": "DUPLICATE_KEY",
+            "column": "order_id",
+            "row": 101
+          },
+          {
+            "code": "DUPLICATE_KEY",
+            "column": "order_id",
+            "row": 102
+          },
+          {
+            "code": "DUPLICATE_KEY",
+            "column": "order_id",
+            "row": 103
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 202
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 203
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 204
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 205
+          },
+          {
+            "code": "DATE_FORMAT",
+            "column": "ordered_on",
+            "row": 206
+          },
+          {
+            "code": "TYPE",
+            "column": "amount",
+            "row": 302
+          },
+          {
+            "code": "TYPE",
+            "column": "amount",
+            "row": 303
+          },
+          {
+            "code": "TYPE",
+            "column": "amount",
+            "row": 304
+          },
+          {
+            "code": "FORMULA",
+            "column": "reference",
+            "row": 402
+          },
+          {
+            "code": "FORMULA",
+            "column": "reference",
+            "row": 403
+          },
+          {
+            "code": "REQUIRED",
+            "column": "customer",
+            "row": 502
+          },
+          {
+            "code": "REQUIRED",
+            "column": "customer",
+            "row": 503
+          },
+          {
+            "code": "REQUIRED",
+            "column": "customer",
+            "row": 504
+          },
+          {
+            "code": "REQUIRED",
+            "column": "customer",
+            "row": 505
+          },
+          {
+            "code": "ENUM",
+            "column": "status",
+            "row": 602
+          },
+          {
+            "code": "ENUM",
+            "column": "status",
+            "row": 603
+          },
+          {
+            "code": "ENUM",
+            "column": "status",
+            "row": 604
+          },
+          {
+            "code": "RANGE",
+            "column": "amount",
+            "row": 702
+          },
+          {
+            "code": "RANGE",
+            "column": "amount",
+            "row": 703
+          },
+          {
+            "code": "ROW_WIDTH",
+            "column": "(record)",
+            "row": 802
+          }
+        ],
+        "evidence_truncated": false,
+        "input_rows": 10000,
+        "issue_counts": {
+          "DATE_FORMAT": 5,
+          "DUPLICATE_KEY": 3,
+          "ENUM": 3,
+          "FORMULA": 2,
+          "RANGE": 2,
+          "REQUIRED": 4,
+          "ROW_WIDTH": 1,
+          "TYPE": 3
+        },
+        "quarantined_rows": 23,
+        "row_conservation": true
+      },
+      "drift": {
+        "added_columns": [],
+        "contract_changed": false,
+        "input_rows_delta": null,
+        "issue_delta": {},
+        "order_changed": false,
+        "previous_plan_id": null,
+        "removed_columns": []
+      },
+      "state": "PLANNED",
+      "receipt": null
+    }
+  ],
+  "read_only": true,
+  "version": "0.1.0"
+}

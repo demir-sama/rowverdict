@@ -1,0 +1,17 @@
+name: rowverdict
+version: "0.1.0"
+description: "Review deterministic CSV repair/quarantine plans, refuse stale input, and export immutable source-bound receipts. Local-only; no per-row inference."
+author: "demir-sama"
+requires_hermes: ">=0.23.1"
+provides_tools:
+  - rowverdict_inspect
+  - rowverdict_plan
+  - rowverdict_export
+  - rowverdict_history
+provides_hooks:
+  - pre_tool_call
+config_schema:
+  allowed_roots:
+    type: list
+    default: []
+    description: "Operator-owned absolute input directories. Empty denies all inputs. Use a narrow directory containing only CSVs you intend to process."

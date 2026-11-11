@@ -1,0 +1,19 @@
+{
+  "live_tool_call_verified": false,
+  "attempts": [
+    {
+      "provider": "nous",
+      "model": "stepfun/step-3.7-flash:free",
+      "credential_available": false,
+      "http_status": 402,
+      "result": "Provider requires normal sign-in/API authorization; no secret values or response bodies recorded"
+    },
+    {
+      "provider": "openrouter",
+      "model": "openrouter/free",
+      "credential_available": false,
+      "http_status": 401,
+      "result": "Provider requires normal sign-in/API authorization; no secret values or response bodies recorded"
+    }
+  ]
+}

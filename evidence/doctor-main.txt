@@ -1,0 +1,4 @@
+Plugin Doctor: /workspace/hackathons/hermes-plugin/rowverdict
+  manifest: rowverdict 0.1.0 (standalone)
+  OK: runtime discovery, manifest parsing, import, and registration passed
+  registrations: 4 tool(s), 1 hook(s)

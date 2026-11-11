@@ -1,0 +1,104 @@
+{
+  "columns": [
+    {
+      "name": "order_id",
+      "type": "string",
+      "required": true
+    },
+    {
+      "name": "customer",
+      "type": "string",
+      "required": true,
+      "trim": true
+    },
+    {
+      "name": "country",
+      "type": "string",
+      "enum": [
+        "US",
+        "BR",
+        "GB",
+        "DE",
+        "JP",
+        "IN",
+        "AU",
+        "ZA",
+        "NG",
+        "KE",
+        "CA",
+        "MX",
+        "AE",
+        "SG",
+        "FR",
+        "KR",
+        "NZ",
+        "AR",
+        "SE",
+        "ID"
+      ]
+    },
+    {
+      "name": "currency",
+      "type": "string",
+      "enum": [
+        "AED",
+        "ARS",
+        "AUD",
+        "BRL",
+        "CAD",
+        "EUR",
+        "GBP",
+        "IDR",
+        "INR",
+        "JPY",
+        "KES",
+        "KRW",
+        "MXN",
+        "NGN",
+        "NZD",
+        "SEK",
+        "SGD",
+        "USD",
+        "ZAR"
+      ]
+    },
+    {
+      "name": "amount",
+      "type": "decimal",
+      "decimal_separator": ".",
+      "min": "0",
+      "max": "1000000"
+    },
+    {
+      "name": "ordered_on",
+      "type": "date",
+      "date_format": "%d/%m/%Y"
+    },
+    {
+      "name": "status",
+      "type": "string",
+      "enum": [
+        "paid",
+        "pending",
+        "refunded"
+      ]
+    },
+    {
+      "name": "reference",
+      "type": "string",
+      "required": false
+    },
+    {
+      "name": "channel",
+      "type": "string",
+      "enum": [
+        "online",
+        "retail"
+      ]
+    }
+  ],
+  "unique_key": [
+    "order_id"
+  ],
+  "delimiter": ","
+}

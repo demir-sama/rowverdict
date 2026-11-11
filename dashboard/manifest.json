@@ -1,0 +1,11 @@
+{
+  "name": "rowverdict",
+  "label": "RowVerdict",
+  "description": "A review desk for deterministic CSV import plans and source-bound receipts.",
+  "icon": "Shield",
+  "version": "0.1.0",
+  "tab": {"path": "/rowverdict", "position": "after:skills"},
+  "entry": "dist/index.js",
+  "css": "dist/style.css",
+  "api": "plugin_api.py"
+}
